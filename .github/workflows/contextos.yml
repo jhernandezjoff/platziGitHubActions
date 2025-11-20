@@ -1,19 +1,9 @@
-name: Reto 4 - Aprende a usar los distintos Contextos
-
-on: workflow_dispatch
-env:
-  var1: Aprendiendo
-  var2: Github-Actions
-  var3: Contextos
+name: Contexto
+run-name: ¡Estoy aprendiendo a usar Contextos!
+on: push
 jobs:
-  Contexto-env:
-    runs-on: ubuntu-latest
-    steps:
-      - name: echo env
-        run: echo "${{ env.var1 }} ${{ env.var2}} ${{ env.var3}}"
-  Contexto-github:
+  check-main:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
-      - name: echo $GITHUB_REF"
-        run: echo "Desplegando en la rama $GITHUB_REF"
+      - run: echo "Desplegando en la rama $GITHUB_REF"
